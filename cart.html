@@ -1,0 +1,408 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TOMATO | Your Cart</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="cart.css">
+</head>
+
+<body>
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<header class="navbar">
+
+    <a href="home.html" class="logo">
+        🍅 TOMATO
+    </a>
+
+    <div class="nav-right">
+
+        <a href="home.html" class="back-home">
+            🏠 Home
+        </a>
+
+        <div class="profile">
+            <img id="profileImage"
+                 src=""
+                 alt="Profile">
+
+            <span id="profileName">
+                Guest
+            </span>
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     PAGE
+========================= -->
+
+<main class="cart-page">
+
+    <div class="cart-heading">
+
+        <div>
+            <span class="small-title">
+                YOUR ORDER
+            </span>
+
+            <h1>
+                Your Cart 🛒
+            </h1>
+
+            <p id="cartSubtitle">
+                Review your delicious items before ordering.
+            </p>
+        </div>
+
+        <a href="home.html" class="add-more-top">
+            + Add More Items
+        </a>
+
+    </div>
+
+
+    <div class="cart-layout">
+
+        <!-- =========================
+             LEFT SIDE
+        ========================= -->
+
+        <section class="cart-section">
+
+            <div class="restaurant-cart-header">
+
+                <div>
+                    <span class="restaurant-icon">
+                        🍽️
+                    </span>
+
+                    <div>
+                        <h2 id="restaurantName">
+                            Your Selected Items
+                        </h2>
+
+                        <p>
+                            Freshly prepared & delivered to you
+                        </p>
+                    </div>
+                </div>
+
+                <span id="itemCount"
+                      class="item-count">
+                    0 items
+                </span>
+
+            </div>
+
+
+            <!-- CART ITEMS -->
+
+            <div id="cartItems"
+                 class="cart-items">
+
+                <!-- JavaScript will add items here -->
+
+            </div>
+
+
+            <!-- EMPTY CART -->
+
+            <div id="emptyCart"
+                 class="empty-cart">
+
+                <div class="empty-cart-icon">
+                    🛒
+                </div>
+
+                <h2>
+                    Your cart is empty
+                </h2>
+
+                <p>
+                    Looks like you haven't added anything yet.
+                </p>
+
+                <a href="home.html"
+                   class="browse-button">
+                    Browse Food
+                </a>
+
+            </div>
+
+
+            <!-- ADD MORE ITEMS -->
+
+            <a href="home.html"
+               class="add-more-box">
+
+                <span class="add-more-icon">
+                    +
+                </span>
+
+                <div>
+                    <strong>
+                        Add more items
+                    </strong>
+
+                    <small>
+                        Explore more delicious food
+                    </small>
+                </div>
+
+                <span class="arrow">
+                    →
+                </span>
+
+            </a>
+
+
+            <!-- DELIVERY ADDRESS -->
+
+            <div class="delivery-card">
+
+                <div class="delivery-icon">
+                    📍
+                </div>
+
+                <div class="delivery-info">
+
+                    <span>
+                        DELIVERING TO
+                    </span>
+
+                    <strong id="deliveryLocation">
+                        Bengaluru
+                    </strong>
+
+                    <p>
+                        Your selected delivery location
+                    </p>
+
+                </div>
+
+                <a href="home.html"
+                   class="change-address">
+                    Change
+                </a>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             RIGHT SIDE
+        ========================= -->
+
+        <aside class="order-summary">
+
+            <h2>
+                Bill Details
+            </h2>
+
+
+            <div class="bill-row">
+
+                <span>
+                    Item Total
+                </span>
+
+                <span id="itemTotal">
+                    ₹0
+                </span>
+
+            </div>
+
+
+            <div class="bill-row">
+
+                <span>
+                    Delivery Fee
+                </span>
+
+                <span id="deliveryFee">
+                    ₹40
+                </span>
+
+            </div>
+
+
+            <div class="bill-row">
+
+                <span>
+                    Platform Fee
+                </span>
+
+                <span id="platformFee">
+                    ₹5
+                </span>
+
+            </div>
+
+
+            <div class="bill-row">
+
+                <span>
+                    Taxes
+                </span>
+
+                <span id="taxAmount">
+                    ₹0
+                </span>
+
+            </div>
+
+
+            <div class="bill-divider"></div>
+
+
+            <div class="bill-total">
+
+                <strong>
+                    To Pay
+                </strong>
+
+                <strong id="grandTotal">
+                    ₹0
+                </strong>
+
+            </div>
+
+
+            <!-- OFFER -->
+
+            <div class="coupon-box">
+
+                <span class="coupon-icon">
+                    🏷️
+                </span>
+
+                <div>
+                    <strong>
+                        Apply Coupon
+                    </strong>
+
+                    <small>
+                        Save more on your order
+                    </small>
+                </div>
+
+                <button id="couponButton">
+                    Apply
+                </button>
+
+            </div>
+
+
+            <!-- PAYMENT -->
+
+            <button id="paymentButton"
+                    class="payment-button">
+
+                <span>
+                    Continue to Payment
+                </span>
+
+                <span>
+                    →
+                </span>
+
+            </button>
+
+            <p class="secure-payment">
+                🔒 Safe & secure payments
+            </p>
+
+        </aside>
+
+    </div>
+
+
+
+    <!-- =========================
+         RECOMMENDATIONS
+    ========================= -->
+
+    <section class="recommendations">
+
+        <div class="recommendation-heading">
+
+            <div>
+
+                <span class="small-title">
+                    YOU MAY ALSO LIKE
+                </span>
+
+                <h2>
+                    Complete your meal 😋
+                </h2>
+
+            </div>
+
+            <a href="home.html">
+                View all →
+            </a>
+
+        </div>
+
+
+        <div id="recommendationGrid"
+             class="recommendation-grid">
+
+            <!-- JavaScript will create recommendations -->
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer class="footer">
+
+    <div class="footer-logo">
+        🍅 TOMATO
+    </div>
+
+    <p>
+        Delicious food. Happy moments.
+    </p>
+
+    <span>
+        © 2026 TOMATO • Bengaluru, India 🇮🇳
+    </span>
+
+</footer>
+
+
+<script src="cart.js"></script>
+
+</body>
+</html>

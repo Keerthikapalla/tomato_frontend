@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>My Orders | TOMATO</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #fff8f5;
+            color: #333;
+        }
+
+        .navbar {
+            height: 70px;
+            padding: 0 7%;
+            background: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        .logo {
+            text-decoration: none;
+            color: #e23744;
+            font-size: 24px;
+            font-weight: 800;
+        }
+
+        .back {
+            text-decoration: none;
+            color: #555;
+            font-size: 13px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 30px;
+        }
+
+        .subtitle {
+            color: #999;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        #ordersContainer {
+            margin-top: 30px;
+        }
+
+        .order-card {
+            background: white;
+            border-radius: 18px;
+            padding: 22px;
+            margin-bottom: 20px;
+            box-shadow: 0 7px 25px rgba(0,0,0,0.06);
+        }
+
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .order-id {
+            font-weight: 700;
+            font-size: 13px;
+        }
+
+        .status {
+            background: #e7f7e9;
+            color: #27763a;
+            padding: 6px 10px;
+            border-radius: 8px;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .order-date {
+            color: #999;
+            font-size: 10px;
+            margin-top: 4px;
+        }
+
+        .order-items {
+            margin-top: 18px;
+        }
+
+        .order-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        .order-item img {
+            width: 65px;
+            height: 65px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .item-info {
+            flex: 1;
+        }
+
+        .item-info strong {
+            font-size: 12px;
+        }
+
+        .item-info p {
+            color: #999;
+            font-size: 10px;
+            margin-top: 4px;
+        }
+
+        .item-price {
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .order-footer {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .total {
+            font-size: 15px;
+            font-weight: 800;
+        }
+
+        .reorder {
+            border: none;
+            background: #e23744;
+            color: white;
+            padding: 10px 16px;
+            border-radius: 9px;
+            font-family: inherit;
+            font-size: 10px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .empty {
+            background: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 18px;
+        }
+
+        .empty-icon {
+            font-size: 50px;
+        }
+
+        .empty h2 {
+            margin-top: 12px;
+            font-size: 20px;
+        }
+
+        .empty p {
+            color: #999;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .empty a {
+            display: inline-block;
+            margin-top: 20px;
+            background: #e23744;
+            color: white;
+            text-decoration: none;
+            padding: 11px 18px;
+            border-radius: 9px;
+            font-size: 11px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+<header class="navbar">
+
+    <a href="home.html" class="logo">
+        🍅 TOMATO
+    </a>
+
+    <a href="home.html" class="back">
+        ← Back to Home
+    </a>
+
+</header>
+
+
+<main class="container">
+
+    <h1>
+        My Orders
+    </h1>
+
+    <p class="subtitle">
+        Your previous TOMATO orders
+    </p>
+
+
+    <div id="ordersContainer">
+    </div>
+
+</main>
+
+
+<script>
+
+    function getOrders() {
+
+        const orders =
+            localStorage.getItem("tomatoOrders");
+
+        if (!orders) {
+            return [];
+        }
+
+        try {
+            return JSON.parse(orders);
+        }
+
+        catch {
+            return [];
+        }
+
+    }
+
+
+    function displayOrders() {
+
+        const container =
+            document.getElementById(
+                "ordersContainer"
+            );
+
+
+        const orders =
+            getOrders();
+
+
+        if (orders.length === 0) {
+
+            container.innerHTML = `
+
+                <div class="empty">
+
+                    <div class="empty-icon">
+                        📦
+                    </div>
+
+                    <h2>
+                        No orders yet
+                    </h2>
+
+                    <p>
+                        Your previous orders will appear here.
+                    </p>
+
+                    <a href="home.html">
+                        Start Ordering
+                    </a>
+
+                </div>
+
+            `;
+
+            return;
+        }
+
+
+        container.innerHTML = "";
+
+
+        orders.forEach(
+            (order, index) => {
+
+                const card =
+                    document.createElement(
+                        "div"
+                    );
+
+                card.className =
+                    "order-card";
+
+
+                let itemsHTML = "";
+
+
+                order.items.forEach(
+                    item => {
+
+                        itemsHTML += `
+
+                            <div class="order-item">
+
+                                <img
+                                    src="${item.image}"
+                                    alt="${item.name}">
+
+                                <div class="item-info">
+
+                                    <strong>
+                                        ${item.name}
+                                    </strong>
+
+                                    <p>
+                                        Quantity: ${item.quantity}
+                                    </p>
+
+                                </div>
+
+                                <div class="item-price">
+                                    ₹${item.price * item.quantity}
+                                </div>
+
+                            </div>
+
+                        `;
+
+                    }
+                );
+
+
+                card.innerHTML = `
+
+                    <div class="order-header">
+
+                        <div>
+
+                            <div class="order-id">
+                                Order #${order.id || (1000 + index)}
+                            </div>
+
+                            <div class="order-date">
+                                ${order.date || "Previous order"}
+                            </div>
+
+                        </div>
+
+                        <span class="status">
+                            ${order.status || "Delivered"}
+                        </span>
+
+                    </div>
+
+
+                    <div class="order-items">
+
+                        ${itemsHTML}
+
+                    </div>
+
+
+                    <div class="order-footer">
+
+                        <span class="total">
+                            Total: ₹${order.total}
+                        </span>
+
+                        <button
+                            class="reorder"
+                            onclick="reorder(${index})">
+
+                            Order Again
+
+                        </button>
+
+                    </div>
+
+                `;
+
+
+                container.appendChild(card);
+
+            }
+        );
+
+    }
+
+
+    function reorder(index) {
+
+        const orders =
+            getOrders();
+
+        const order =
+            orders[index];
+
+
+        let cart = [];
+
+
+        order.items.forEach(item => {
+
+            cart.push({
+
+                id: item.id,
+
+                name: item.name,
+
+                price: item.price,
+
+                image: item.image,
+
+                quantity: item.quantity
+
+            });
+
+        });
+
+
+        localStorage.setItem(
+            "tomatoCart",
+            JSON.stringify(cart)
+        );
+
+
+        window.location.href =
+            "cart.html";
+
+    }
+
+
+    displayOrders();
+
+</script>
+
+</body>
+
+</html>

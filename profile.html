@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>My Profile | TOMATO</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #fff8f5;
+            color: #333;
+        }
+
+        .navbar {
+            height: 70px;
+            padding: 0 7%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #eee;
+        }
+
+        .logo {
+            text-decoration: none;
+            color: #e23744;
+            font-size: 24px;
+            font-weight: 800;
+        }
+
+        .back {
+            text-decoration: none;
+            color: #555;
+            font-size: 13px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .profile-card {
+            background: white;
+            border-radius: 22px;
+            padding: 40px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+        }
+
+        .profile-top {
+            text-align: center;
+        }
+
+        .profile-top img {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #e23744;
+        }
+
+        .profile-top h1 {
+            margin-top: 15px;
+            font-size: 25px;
+        }
+
+        .profile-top p {
+            color: #999;
+            font-size: 13px;
+        }
+
+        .details {
+            margin-top: 35px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .detail-box {
+            padding: 18px;
+            border: 1px solid #eee;
+            border-radius: 13px;
+        }
+
+        .detail-box small {
+            color: #999;
+            font-size: 10px;
+        }
+
+        .detail-box p {
+            margin-top: 5px;
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        .buttons {
+            margin-top: 30px;
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .buttons a {
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .orders {
+            background: #e23744;
+            color: white;
+        }
+
+        .cart {
+            background: #fff0ed;
+            color: #e23744;
+        }
+
+        @media(max-width:600px) {
+
+            .details {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-card {
+                padding: 25px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <a href="home.html" class="logo">
+        🍅 TOMATO
+    </a>
+
+    <a href="home.html" class="back">
+        ← Back to Home
+    </a>
+
+</header>
+
+
+<main class="container">
+
+    <div class="profile-card">
+
+        <div class="profile-top">
+
+            <img
+                id="profileImage"
+                src=""
+                alt="Profile">
+
+            <h1 id="profileName">
+                My Account
+            </h1>
+
+            <p id="profileEmail">
+                Welcome to TOMATO
+            </p>
+
+        </div>
+
+
+        <div class="details">
+
+            <div class="detail-box">
+
+                <small>
+                    FULL NAME
+                </small>
+
+                <p id="nameValue">
+                    Not available
+                </p>
+
+            </div>
+
+
+            <div class="detail-box">
+
+                <small>
+                    EMAIL
+                </small>
+
+                <p id="emailValue">
+                    Not available
+                </p>
+
+            </div>
+
+
+            <div class="detail-box">
+
+                <small>
+                    PHONE
+                </small>
+
+                <p id="phoneValue">
+                    Not added
+                </p>
+
+            </div>
+
+
+            <div class="detail-box">
+
+                <small>
+                    DELIVERY ADDRESS
+                </small>
+
+                <p id="addressValue">
+                    Bengaluru
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="buttons">
+
+            <a
+                href="orders.html"
+                class="orders">
+
+                📦 My Orders
+
+            </a>
+
+
+            <a
+                href="cart.html"
+                class="cart">
+
+                🛒 My Cart
+
+            </a>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<script>
+
+    function defaultImage() {
+
+        return "data:image/svg+xml;charset=UTF-8," +
+            encodeURIComponent(`
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     width="120"
+                     height="120">
+
+                    <circle
+                        cx="60"
+                        cy="60"
+                        r="58"
+                        fill="#ffe5df"/>
+
+                    <circle
+                        cx="60"
+                        cy="45"
+                        r="20"
+                        fill="#e23744"/>
+
+                    <path
+                        d="M25 105
+                           C27 78 45 68 60 68
+                           C75 68 93 78 95 105"
+                        fill="#e23744"/>
+
+                </svg>
+            `);
+
+    }
+
+
+    const name =
+        localStorage.getItem("userName")
+        || "My Account";
+
+    const email =
+        localStorage.getItem("userEmail")
+        || "Welcome to TOMATO";
+
+    const picture =
+        localStorage.getItem("userPicture")
+        || defaultImage();
+
+
+    document.getElementById("profileImage").src =
+        picture;
+
+    document.getElementById("profileName").textContent =
+        name;
+
+    document.getElementById("profileEmail").textContent =
+        email;
+
+    document.getElementById("nameValue").textContent =
+        name;
+
+    document.getElementById("emailValue").textContent =
+        email;
+
+
+    const address =
+        localStorage.getItem("selectedLocation");
+
+    if (address) {
+
+        document.getElementById(
+            "addressValue"
+        ).textContent = address;
+
+    }
+
+</script>
+
+</body>
+</html>

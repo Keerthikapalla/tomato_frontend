@@ -1,0 +1,696 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Create Account | TOMATO</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="registration.css" />
+
+    <!-- FOOD CARD FIXES -->
+    <style>
+      /* =========================================
+         FOOD COLLAGE
+         ========================================= */
+
+      .food-collage {
+        position: relative;
+        width: 470px;
+        height: 390px;
+        margin: 20px auto 0;
+        z-index: 5;
+      }
+
+      /* =========================================
+         ALL FOOD CARDS SAME SIZE
+         ========================================= */
+
+      .food-card-small {
+        position: absolute;
+        width: 190px;
+        height: 145px;
+        overflow: hidden;
+        border-radius: 25px;
+        background: white;
+        border: 7px solid white;
+        box-sizing: border-box;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+        z-index: 5;
+      }
+
+      .food-card-small img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      /* =========================================
+         PIZZA
+         ========================================= */
+
+      .pizza-card {
+        left: 35px;
+        top: 20px;
+        transform: rotate(4deg);
+      }
+
+      /* =========================================
+         BURGER
+         ========================================= */
+
+      .burger-card {
+        right: 25px;
+        top: 105px;
+        transform: rotate(-4deg);
+      }
+
+      /* =========================================
+         CAKE
+         ========================================= */
+
+      .cake-card {
+        left: 20px;
+        top: 210px;
+        transform: rotate(-4deg);
+      }
+
+      /* =========================================
+         DOSA
+         ========================================= */
+
+      .dosa-card {
+        right: 35px;
+        top: 235px;
+        transform: rotate(4deg);
+      }
+
+      /* =========================================
+         IMAGE LABEL
+         ========================================= */
+
+      .food-card-small .image-label {
+        position: absolute;
+        left: 12px;
+        bottom: 10px;
+        background: white;
+        padding: 7px 13px;
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: 600;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+        z-index: 10;
+      }
+
+      /* =========================================
+         MORE FLOATING FOOD
+         ========================================= */
+
+      .floating-food,
+      .heart {
+        z-index: 20;
+        pointer-events: none;
+      }
+
+      .food-section {
+        position: relative;
+        overflow: visible;
+      }
+
+      /* Additional floating food */
+
+      .food-seven {
+        position: absolute;
+        left: 12%;
+        top: 38%;
+        font-size: 38px;
+        z-index: 20;
+        animation: floatFood 4s ease-in-out infinite;
+      }
+
+      .food-eight {
+        position: absolute;
+        right: 9%;
+        top: 46%;
+        font-size: 38px;
+        z-index: 20;
+        animation: floatFood 5s ease-in-out infinite;
+      }
+
+      .food-nine {
+        position: absolute;
+        left: 5%;
+        bottom: 18%;
+        font-size: 40px;
+        z-index: 20;
+        animation: floatFood 4.5s ease-in-out infinite;
+      }
+
+      .food-ten {
+        position: absolute;
+        right: 4%;
+        bottom: 27%;
+        font-size: 38px;
+        z-index: 20;
+        animation: floatFood 5s ease-in-out infinite;
+      }
+
+      @keyframes floatFood {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+
+        50% {
+          transform: translateY(-10px) rotate(5deg);
+        }
+      }
+
+      /* =========================================
+         MOBILE
+         ========================================= */
+
+      @media (max-width: 700px) {
+        .food-collage {
+          width: 400px;
+          max-width: 95%;
+          height: 360px;
+        }
+
+        .food-card-small {
+          width: 165px;
+          height: 130px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <!-- MAIN PAGE -->
+
+    <div class="page-container">
+
+      <!-- =====================================
+           LEFT FOOD / BRAND SECTION
+           ====================================== -->
+
+      <section class="food-section">
+
+        <!-- Decorative circles -->
+
+        <div class="circle circle-one"></div>
+
+        <div class="circle circle-two"></div>
+
+        <div class="circle circle-three"></div>
+
+
+        <!-- Floating cute food -->
+
+        <div class="floating-food food-one">🍕</div>
+
+        <div class="floating-food food-two">🍔</div>
+
+        <div class="floating-food food-three">🍟</div>
+
+        <div class="floating-food food-four">🧁</div>
+
+        <div class="floating-food food-five">🍜</div>
+
+        <div class="floating-food food-six">🍅</div>
+
+
+        <!-- MORE FLOATING FOOD -->
+
+        <div class="floating-food food-seven">🍩</div>
+
+        <div class="floating-food food-eight">🥤</div>
+
+        <div class="floating-food food-nine">🍓</div>
+
+        <div class="floating-food food-ten">🍰</div>
+
+
+        <!-- Hearts -->
+
+        <div class="heart heart-one">❤️</div>
+
+        <div class="heart heart-two">💚</div>
+
+        <div class="heart heart-three">❤️</div>
+
+
+        <!-- MAIN CONTENT -->
+
+        <div class="food-content">
+
+          <!-- LOGO -->
+
+          <div class="brand">
+
+            <span class="tomato-icon">
+              🍅
+            </span>
+
+            <span class="brand-name">
+              TOMATO
+            </span>
+
+          </div>
+
+
+          <!-- HEADING -->
+
+          <h1>
+            Good food.
+            <br />
+
+            <span>
+              Good mood.
+            </span>
+
+            ❤️
+          </h1>
+
+
+          <p>
+            Discover delicious food, cute little moments and your favourite
+            restaurants all in one place.
+          </p>
+
+
+          <!-- =====================================
+               FOOD IMAGE COLLAGE
+               ====================================== -->
+
+          <div class="food-collage">
+
+
+            <!-- PIZZA -->
+
+            <div class="food-card food-card-small pizza-card">
+
+              <img
+                src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=90"
+                alt="Delicious Pizza"
+              />
+
+              <div class="image-label">
+                🍕 Pizza
+              </div>
+
+            </div>
+
+
+            <!-- BURGER -->
+
+            <div class="food-card food-card-small burger-card">
+
+              <img
+                src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=90"
+                alt="Delicious Burger"
+              />
+
+              <div class="image-label">
+                🍔 Burger
+              </div>
+
+            </div>
+
+
+            <!-- CAKE -->
+
+            <div class="food-card food-card-small cake-card">
+
+              <img
+                src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=90"
+                alt="Beautiful Chocolate Cake"
+              />
+
+              <div class="image-label">
+                🍰 Cake
+              </div>
+
+            </div>
+
+
+            <!-- DOSA -->
+
+            <div class="food-card food-card-small dosa-card">
+
+              <img
+                src="https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&w=600&q=90"
+                alt="Crispy South Indian Dosa"
+              />
+
+              <div class="image-label">
+                🥞 Dosa
+              </div>
+
+            </div>
+
+
+          </div>
+
+
+          <!-- MINI MESSAGE -->
+
+          <div class="food-message">
+
+            <span class="message-icon">
+              💚
+            </span>
+
+            <span>
+              Made for food lovers
+            </span>
+
+          </div>
+
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================
+           RIGHT REGISTRATION SECTION
+           ====================================== -->
+
+      <section class="registration-section">
+
+        <div class="registration-card">
+
+
+          <!-- MOBILE LOGO -->
+
+          <div class="mobile-brand">
+
+            <span>
+              🍅
+            </span>
+
+            TOMATO
+
+          </div>
+
+
+          <!-- HEADING -->
+
+          <h2>
+            Create your account
+          </h2>
+
+
+          <p class="subtitle">
+            Join TOMATO and discover something delicious.
+          </p>
+
+
+          <!-- SUCCESS MESSAGE -->
+
+          <div
+            id="successMessage"
+            class="success-message"
+          ></div>
+
+
+          <!-- REGISTRATION FORM -->
+
+          <form id="registrationForm">
+
+
+            <!-- FULL NAME -->
+
+            <div class="input-group">
+
+              <label for="fullName">
+                Full Name
+              </label>
+
+              <input
+                type="text"
+                id="fullName"
+                name="fullName"
+                placeholder="What should we call you?"
+                autocomplete="name"
+              />
+
+              <small
+                id="nameError"
+                class="error-message"
+              ></small>
+
+            </div>
+
+
+            <!-- EMAIL -->
+
+            <div class="input-group">
+
+              <label for="email">
+                Email Address
+              </label>
+
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter your email"
+                autocomplete="email"
+              />
+
+              <small
+                id="emailError"
+                class="error-message"
+              ></small>
+
+            </div>
+
+
+            <!-- MOBILE -->
+
+            <div class="input-group">
+
+              <label for="mobile">
+                Mobile Number
+              </label>
+
+              <div class="mobile-input">
+
+                <span class="country-code">
+                  🇮🇳 +91
+                </span>
+
+                <input
+                  type="tel"
+                  id="mobile"
+                  name="mobile"
+                  placeholder="10 digit mobile number"
+                  maxlength="10"
+                  autocomplete="tel"
+                />
+
+              </div>
+
+              <small
+                id="mobileError"
+                class="error-message"
+              ></small>
+
+            </div>
+
+
+            <!-- PASSWORD -->
+
+            <div class="input-group">
+
+              <label for="password">
+                Password
+              </label>
+
+              <div class="password-wrapper">
+
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="Create a strong password"
+                  autocomplete="new-password"
+                />
+
+                <button
+                  type="button"
+                  class="show-password"
+                  onclick="togglePassword('password', this)"
+                >
+                  Show
+                </button>
+
+              </div>
+
+              <small
+                id="passwordError"
+                class="error-message"
+              ></small>
+
+            </div>
+
+
+            <!-- CONFIRM PASSWORD -->
+
+            <div class="input-group">
+
+              <label for="confirmPassword">
+                Confirm Password
+              </label>
+
+              <div class="password-wrapper">
+
+                <input
+                  type="password"
+                  id="confirmPassword"
+                  name="confirmPassword"
+                  placeholder="Enter your password again"
+                  autocomplete="new-password"
+                />
+
+                <button
+                  type="button"
+                  class="show-password"
+                  onclick="togglePassword('confirmPassword', this)"
+                >
+                  Show
+                </button>
+
+              </div>
+
+              <small
+                id="confirmPasswordError"
+                class="error-message"
+              ></small>
+
+            </div>
+
+
+            <!-- TERMS -->
+
+            <div class="terms-container">
+
+              <input
+                type="checkbox"
+                id="terms"
+                name="terms"
+              />
+
+              <label for="terms">
+
+                I agree to the
+
+                <a
+                  href="#"
+                  onclick="return false;"
+                >
+                  Terms & Conditions
+                </a>
+
+                and
+
+                <a
+                  href="#"
+                  onclick="return false;"
+                >
+                  Privacy Policy
+                </a>
+
+              </label>
+
+            </div>
+
+
+            <small
+              id="termsError"
+              class="error-message"
+            ></small>
+
+
+            <!-- CREATE ACCOUNT BUTTON -->
+
+            <button
+              type="submit"
+              class="register-btn"
+            >
+
+              Create Account
+
+              <span>
+                🍅
+              </span>
+
+            </button>
+
+
+            <!-- LOGIN -->
+
+            <div class="login-text">
+
+              Already have an account?
+
+              <a href="login.html">
+                Login
+              </a>
+
+            </div>
+
+
+          </form>
+
+
+          <!-- BOTTOM DECORATION -->
+
+          <div class="bottom-decoration">
+
+            <span>🍕</span>
+
+            <span>🥗</span>
+
+            <span>🍔</span>
+
+            <span>🍰</span>
+
+            <span>🍜</span>
+
+          </div>
+
+
+        </div>
+
+      </section>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="registration.js"></script>
+
+  </body>
+</html>

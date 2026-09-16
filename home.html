@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>TOMATO | Food Delivery</title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="home.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =================================================
+     NAVBAR
+================================================= -->
+
+<header class="navbar">
+
+    <div
+        class="logo"
+        onclick="goHome()"
+    >
+
+        <span class="tomato-logo">
+            🍅
+        </span>
+
+        <span>
+            TOMATO
+        </span>
+
+    </div>
+
+
+    <div class="nav-location">
+
+        <span>📍</span>
+
+        <select id="locationSelect">
+
+            <option value="Bengaluru">
+                Bengaluru
+            </option>
+
+            <option value="Koramangala">
+                Koramangala
+            </option>
+
+            <option value="Indiranagar">
+                Indiranagar
+            </option>
+
+            <option value="Whitefield">
+                Whitefield
+            </option>
+
+            <option value="HSR Layout">
+                HSR Layout
+            </option>
+
+            <option value="Jayanagar">
+                Jayanagar
+            </option>
+
+            <option value="BTM Layout">
+                BTM Layout
+            </option>
+
+            <option value="Marathahalli">
+                Marathahalli
+            </option>
+
+            <option value="Malleshwaram">
+                Malleshwaram
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <div class="search-box">
+
+        <span>🔍</span>
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search restaurants..."
+        >
+
+    </div>
+
+
+    <nav class="nav-links">
+
+        <a
+            href="home.html"
+            class="active"
+        >
+            Home
+        </a>
+
+        <a href="orders.html">
+            Orders
+        </a>
+
+        <a href="cart.html">
+
+            Cart
+
+            <span id="cartCount">
+                0
+            </span>
+
+        </a>
+
+
+        <div class="profile-container">
+
+            <div class="profile-image">
+                👤
+            </div>
+
+
+            <div class="profile-dropdown">
+
+                <a href="profile.html">
+                    My Profile
+                </a>
+
+                <a href="orders.html">
+                    My Orders
+                </a>
+
+                <a href="cart.html">
+                    My Cart
+                </a>
+
+                <a href="favourites.html">
+                    Favourites
+                </a>
+
+                <a href="settings.html">
+                    Settings
+                </a>
+
+                <a
+                    href="login.html"
+                    class="logout"
+                >
+                    Logout
+                </a>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =================================================
+     HERO
+================================================= -->
+
+<section class="hero">
+
+
+    <div class="hero-left">
+
+        <div class="small-label">
+            🍅 WELCOME TO TOMATO
+        </div>
+
+
+        <h1>
+
+            What are you
+
+            <span>
+                craving today?
+            </span>
+
+        </h1>
+
+
+        <p>
+
+            Discover delicious restaurants around you,
+            choose your favourite place and let TOMATO
+            take care of the rest.
+
+        </p>
+
+
+        <div class="hero-search">
+
+            <span>
+                🔍
+            </span>
+
+            <input
+                type="text"
+                id="heroSearch"
+                placeholder="Search restaurants or cuisines..."
+            >
+
+            <button
+                onclick="searchRestaurants()"
+            >
+                Search
+            </button>
+
+        </div>
+
+
+        <div class="hero-tags">
+
+            <span>
+                🍕 Pizza
+            </span>
+
+            <span>
+                🍛 Biryani
+            </span>
+
+            <span>
+                🍔 Burgers
+            </span>
+
+            <span>
+                🥘 South Indian
+            </span>
+
+            <span>
+                🍰 Desserts
+            </span>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =================================================
+         HERO TOMATO
+    ================================================= -->
+
+    <div class="hero-tomato-area">
+
+        <div class="thought-bubble">
+
+            <span>
+                💭
+            </span>
+
+            <p>
+
+                Hmm...
+
+                <br>
+
+                What should we
+                order today?
+
+            </p>
+
+        </div>
+
+
+        <div class="tomato-glow"></div>
+
+
+       
+
+
+        <div class="tomato-shadow"></div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =================================================
+     RESTAURANTS
+================================================= -->
+
+<section
+    class="restaurants-section"
+    id="restaurantsSection"
+>
+
+
+    <div class="section-heading">
+
+        <div>
+
+            <span class="section-small">
+                🍅 EXPLORE NEAR YOU
+            </span>
+
+
+            <h2>
+
+                Restaurants you'll
+
+                <span>
+                    love
+                </span>
+
+            </h2>
+
+
+            <p id="restaurantSubtitle">
+
+                Discover the best restaurants
+                in Bengaluru
+
+            </p>
+
+        </div>
+
+
+        <div class="restaurant-count">
+
+            <strong id="restaurantCount">
+                0
+            </strong>
+
+            <span>
+
+                restaurants
+
+                <br>
+
+                available
+
+            </span>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- FILTERS -->
+
+    <div class="filters">
+
+        <button
+            class="filter active"
+            data-filter="all"
+        >
+            All
+        </button>
+
+        <button
+            class="filter"
+            data-filter="North Indian"
+        >
+            🍛 North Indian
+        </button>
+
+        <button
+            class="filter"
+            data-filter="South Indian"
+        >
+            🥘 South Indian
+        </button>
+
+        <button
+            class="filter"
+            data-filter="Pizza"
+        >
+            🍕 Pizza
+        </button>
+
+        <button
+            class="filter"
+            data-filter="Burgers"
+        >
+            🍔 Burgers
+        </button>
+
+        <button
+            class="filter"
+            data-filter="Chinese"
+        >
+            🍜 Chinese
+        </button>
+
+        <button
+            class="filter"
+            data-filter="Desserts"
+        >
+            🍰 Desserts
+        </button>
+
+    </div>
+
+
+
+    <!-- RESTAURANT CARDS -->
+
+    <div
+        class="restaurant-grid"
+        id="restaurantGrid"
+    ></div>
+
+
+    <div
+        class="no-results"
+        id="noResults"
+    >
+
+        <div>
+            🍅
+        </div>
+
+        <h3>
+            Tomato couldn't find that restaurant
+        </h3>
+
+        <p>
+            Try another restaurant, area or cuisine.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =================================================
+     ROPE TOMATO
+================================================= -->
+
+<div
+    class="tomato-rope-track"
+    id="tomatoRopeTrack"
+>
+
+    <div class="hanging-rope"></div>
+
+
+    <div
+        class="rope-tomato"
+        id="ropeTomato"
+    >
+
+        <img
+            src="assets/tomato-thinking.png"
+            alt="Tomato climbing rope"
+        >
+
+
+        <div
+            class="rope-tomato-message"
+            id="tomatoMessage"
+        >
+            Let's explore! 🍅
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =================================================
+     BOTTOM MESSAGE
+================================================= -->
+
+<section class="bottom-message">
+
+    <div class="bottom-tomato">
+        🍅
+    </div>
+
+
+    <h2>
+
+        Your next delicious meal
+        is waiting for you.
+
+    </h2>
+
+
+    <p>
+
+        Pick a restaurant and let TOMATO
+        do the rest.
+
+    </p>
+
+</section>
+
+
+
+<!-- =================================================
+     FOOTER
+================================================= -->
+
+<footer>
+
+    <div class="footer-logo">
+        🍅 TOMATO
+    </div>
+
+
+    <p>
+        Made with ❤️ for food lovers.
+    </p>
+
+
+    <div class="footer-links">
+
+        <a href="#">
+            About
+        </a>
+
+        <a href="#">
+            Help
+        </a>
+
+        <a href="#">
+            Privacy
+        </a>
+
+        <a href="#">
+            Terms
+        </a>
+
+    </div>
+
+</footer>
+
+
+
+<script src="home.js"></script>
+
+</body>
+
+</html>

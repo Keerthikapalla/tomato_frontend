@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>TOMATO | Menu</title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="menu.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header class="menu-navbar">
+
+    <div
+        class="menu-logo"
+        onclick="goHome()"
+    >
+        🍅
+
+        <span>
+            TOMATO
+        </span>
+    </div>
+
+
+    <div class="menu-actions">
+
+        <button
+            class="home-button"
+            onclick="goHome()"
+        >
+            ← Home
+        </button>
+
+
+        <button
+            class="cart-button"
+            onclick="openCart()"
+        >
+
+            🛒 Cart
+
+            <span id="menuCartCount">
+                0
+            </span>
+
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     RESTAURANT HEADER
+===================================================== -->
+
+<section class="restaurant-header">
+
+    <div class="restaurant-header-inner">
+
+        <div class="restaurant-icon">
+            🍽️
+        </div>
+
+
+        <div>
+
+            <div class="restaurant-label">
+                🍅 NOW SERVING
+            </div>
+
+
+            <h1 id="restaurantName">
+                Loading...
+            </h1>
+
+
+            <p id="restaurantCuisine">
+                Loading menu...
+            </p>
+
+
+            <div class="restaurant-meta">
+
+                <span id="restaurantRating">
+                    ★ 4.5
+                </span>
+
+                <span>
+                    🕒 30–35 min
+                </span>
+
+                <span>
+                    🛵 Delivery
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     MENU
+===================================================== -->
+
+<main class="menu-section">
+
+
+    <div class="menu-heading">
+
+        <div>
+
+            <div class="menu-label">
+                🍴 FRESH FROM THE KITCHEN
+            </div>
+
+            <h2>
+                Explore the menu
+            </h2>
+
+        </div>
+
+
+        <div class="food-search">
+
+            <span>
+                🔍
+            </span>
+
+            <input
+                type="text"
+                id="foodSearch"
+                placeholder="Search dishes..."
+            >
+
+        </div>
+
+    </div>
+
+
+
+    <!-- CATEGORIES -->
+
+    <div
+        class="menu-categories"
+        id="menuCategories"
+    >
+
+        <button
+            class="category-button active"
+            data-category="all"
+        >
+            All
+        </button>
+
+        <button
+            class="category-button"
+            data-category="Biryani"
+        >
+            🍛 Biryani
+        </button>
+
+        <button
+            class="category-button"
+            data-category="Starters"
+        >
+            🍗 Starters
+        </button>
+
+        <button
+            class="category-button"
+            data-category="Main Course"
+        >
+            🍽️ Main Course
+        </button>
+
+        <button
+            class="category-button"
+            data-category="Pizza"
+        >
+            🍕 Pizza
+        </button>
+
+        <button
+            class="category-button"
+            data-category="Burgers"
+        >
+            🍔 Burgers
+        </button>
+
+        <button
+            class="category-button"
+            data-category="Chinese"
+        >
+            🍜 Chinese
+        </button>
+
+        <button
+            class="category-button"
+            data-category="Desserts"
+        >
+            🍰 Desserts
+        </button>
+
+        <button
+            class="category-button"
+            data-category="Drinks"
+        >
+            🥤 Drinks
+        </button>
+
+    </div>
+
+
+
+    <!-- MENU ITEMS -->
+
+    <div
+        class="menu-grid"
+        id="menuContainer"
+    ></div>
+
+
+    <div
+        class="menu-empty"
+        id="menuEmpty"
+    >
+
+        <div>
+            🍅
+        </div>
+
+        <h3>
+            No dishes found
+        </h3>
+
+        <p>
+            Try another category or search.
+        </p>
+
+    </div>
+
+</main>
+
+
+
+<!-- =====================================================
+     CART BAR
+===================================================== -->
+
+<div
+    class="bottom-cart"
+    id="bottomCart"
+>
+
+    <div>
+
+        <strong id="bottomCartItems">
+            0 items
+        </strong>
+
+        <span>
+            added to your cart
+        </span>
+
+    </div>
+
+
+    <button onclick="openCart()">
+        View Cart →
+    </button>
+
+</div>
+
+
+
+<!-- =====================================================
+     CART MODAL
+===================================================== -->
+
+<div
+    class="cart-overlay"
+    id="cartOverlay"
+>
+
+    <div class="cart-modal">
+
+        <button
+            class="close-cart"
+            onclick="closeCart()"
+        >
+            ×
+        </button>
+
+
+        <h2>
+            🛒 Your Cart
+        </h2>
+
+
+        <p
+            class="cart-restaurant"
+            id="cartRestaurantName"
+        ></p>
+
+
+        <div
+            id="cartItems"
+            class="cart-items"
+        ></div>
+
+
+        <div class="bill">
+
+            <div>
+
+                <span>
+                    Item Total
+                </span>
+
+                <strong id="itemTotal">
+                    ₹0
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    Delivery Fee
+                </span>
+
+                <strong>
+                    ₹40
+                </strong>
+
+            </div>
+
+
+            <div class="bill-total">
+
+                <span>
+                    To Pay
+                </span>
+
+                <strong id="cartTotal">
+                    ₹40
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="checkout-button"
+            onclick="checkout()"
+        >
+            Proceed to Checkout
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<script src="menu.js"></script>
+
+</body>
+
+</html>

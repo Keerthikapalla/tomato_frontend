@@ -1,0 +1,825 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TOMATO | Payment</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="payment.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<header class="navbar">
+
+    <a href="home.html" class="logo">
+        🍅 TOMATO
+    </a>
+
+    <div class="checkout-title">
+        Secure Checkout 🔒
+    </div>
+
+    <a href="cart.html" class="back-cart">
+        🛒 Cart
+    </a>
+
+</header>
+
+
+
+<!-- =========================
+     PAGE
+========================= -->
+
+<main class="payment-page">
+
+
+    <!-- =========================
+         DELIVERY ADDRESS
+    ========================= -->
+
+    <section class="address-section">
+
+        <div class="section-top">
+
+            <div>
+                <span class="step">
+                    STEP 1
+                </span>
+
+                <h2>
+                    📍 Delivery Address
+                </h2>
+            </div>
+
+            <button
+                class="change-button"
+                id="changeAddressButton"
+            >
+                Change
+            </button>
+
+        </div>
+
+
+        <div class="address-card">
+
+            <div class="address-icon">
+                🏠
+            </div>
+
+            <div class="address-details">
+
+                <strong id="addressName">
+                    Keerthika
+                </strong>
+
+                <span id="addressType">
+                    Home
+                </span>
+
+                <p id="deliveryAddress">
+                    Your saved delivery address will appear here.
+                </p>
+
+                <small id="addressPhone">
+                    📞 +91 XXXXX XXXXX
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <!-- CHANGE ADDRESS -->
+
+        <div
+            class="address-form"
+            id="addressForm"
+        >
+
+            <h3>
+                Enter delivery address
+            </h3>
+
+            <input
+                type="text"
+                id="newAddress"
+                placeholder="Enter your complete address"
+            >
+
+            <input
+                type="text"
+                id="newPhone"
+                placeholder="Enter phone number"
+            >
+
+            <div class="address-form-buttons">
+
+                <button
+                    id="saveAddress"
+                    class="save-address"
+                >
+                    Save Address
+                </button>
+
+                <button
+                    id="cancelAddress"
+                    class="cancel-address"
+                >
+                    Cancel
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         PAYMENT SECTION
+    ========================= -->
+
+    <section class="payment-container">
+
+
+        <!-- PAYMENT METHODS -->
+
+        <div class="payment-methods">
+
+            <span class="step">
+                STEP 2
+            </span>
+
+            <h2>
+                Choose Payment Method
+            </h2>
+
+
+            <div class="payment-layout">
+
+
+                <!-- LEFT MENU -->
+
+                <div class="payment-menu">
+
+
+                    <button
+                        class="payment-option active"
+                        data-method="upi"
+                    >
+
+                        <span class="payment-option-icon">
+                            📱
+                        </span>
+
+                        <span>
+                            <strong>UPI</strong>
+                            <small>Google Pay, PhonePe, Paytm</small>
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="payment-option"
+                        data-method="card"
+                    >
+
+                        <span class="payment-option-icon">
+                            💳
+                        </span>
+
+                        <span>
+                            <strong>Credit / Debit Card</strong>
+                            <small>Visa, Mastercard, RuPay</small>
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="payment-option"
+                        data-method="netbanking"
+                    >
+
+                        <span class="payment-option-icon">
+                            🏦
+                        </span>
+
+                        <span>
+                            <strong>Net Banking</strong>
+                            <small>All major banks</small>
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="payment-option"
+                        data-method="wallet"
+                    >
+
+                        <span class="payment-option-icon">
+                            👛
+                        </span>
+
+                        <span>
+                            <strong>Wallets</strong>
+                            <small>Paytm, Mobikwik & more</small>
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="payment-option"
+                        data-method="cod"
+                    >
+
+                        <span class="payment-option-icon">
+                            💵
+                        </span>
+
+                        <span>
+                            <strong>Cash on Delivery</strong>
+                            <small>Pay when your food arrives</small>
+                        </span>
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- RIGHT PAYMENT AREA -->
+
+                <div class="payment-details">
+
+
+                    <!-- UPI -->
+
+                    <div
+                        class="payment-panel active"
+                        id="upi"
+                    >
+
+                        <h3>
+                            Pay using UPI
+                        </h3>
+
+                        <p class="panel-description">
+                            Choose your preferred UPI application.
+                        </p>
+
+
+                        <div class="upi-apps">
+
+
+                            <button class="upi-card">
+
+                                <span class="upi-logo google">
+                                    G
+                                </span>
+
+                                <span>
+                                    Google Pay
+                                </span>
+
+                            </button>
+
+
+                            <button class="upi-card">
+
+                                <span class="upi-logo phonepe">
+                                    P
+                                </span>
+
+                                <span>
+                                    PhonePe
+                                </span>
+
+                            </button>
+
+
+                            <button class="upi-card">
+
+                                <span class="upi-logo paytm">
+                                    P
+                                </span>
+
+                                <span>
+                                    Paytm
+                                </span>
+
+                            </button>
+
+
+                            <button class="upi-card">
+
+                                <span class="upi-logo amazon">
+                                    A
+                                </span>
+
+                                <span>
+                                    Amazon Pay
+                                </span>
+
+                            </button>
+
+                        </div>
+
+
+                        <div class="upi-divider">
+                            <span>OR</span>
+                        </div>
+
+
+                        <label>
+                            Enter UPI ID
+                        </label>
+
+                        <div class="upi-input">
+
+                            <input
+                                type="text"
+                                id="upiId"
+                                placeholder="example@upi"
+                            >
+
+                            <button id="verifyUpi">
+                                Verify
+                            </button>
+
+                        </div>
+
+                        <small
+                            class="verification-message"
+                            id="upiMessage"
+                        ></small>
+
+                    </div>
+
+
+
+                    <!-- CARD -->
+
+                    <div
+                        class="payment-panel"
+                        id="card"
+                    >
+
+                        <h3>
+                            Credit / Debit Card
+                        </h3>
+
+                        <p class="panel-description">
+                            Enter your card details securely.
+                        </p>
+
+
+                        <div class="card-icons">
+
+                            <span>VISA</span>
+                            <span>Mastercard</span>
+                            <span>RuPay</span>
+
+                        </div>
+
+
+                        <label>
+                            Card Number
+                        </label>
+
+                        <input
+                            type="text"
+                            id="cardNumber"
+                            class="payment-input"
+                            placeholder="1234 5678 9012 3456"
+                            maxlength="19"
+                        >
+
+
+                        <div class="input-row">
+
+                            <div>
+
+                                <label>
+                                    Expiry Date
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="expiry"
+                                    class="payment-input"
+                                    placeholder="MM / YY"
+                                    maxlength="5"
+                                >
+
+                            </div>
+
+
+                            <div>
+
+                                <label>
+                                    CVV
+                                </label>
+
+                                <input
+                                    type="password"
+                                    id="cvv"
+                                    class="payment-input"
+                                    placeholder="•••"
+                                    maxlength="3"
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <label>
+                            Card Holder Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="cardName"
+                            class="payment-input"
+                            placeholder="Name on card"
+                        >
+
+                    </div>
+
+
+
+                    <!-- NET BANKING -->
+
+                    <div
+                        class="payment-panel"
+                        id="netbanking"
+                    >
+
+                        <h3>
+                            Net Banking
+                        </h3>
+
+                        <p class="panel-description">
+                            Select your bank to continue.
+                        </p>
+
+
+                        <select
+                            id="bankSelect"
+                            class="payment-input"
+                        >
+
+                            <option value="">
+                                Select your bank
+                            </option>
+
+                            <option>
+                                State Bank of India
+                            </option>
+
+                            <option>
+                                HDFC Bank
+                            </option>
+
+                            <option>
+                                ICICI Bank
+                            </option>
+
+                            <option>
+                                Axis Bank
+                            </option>
+
+                            <option>
+                                Kotak Mahindra Bank
+                            </option>
+
+                            <option>
+                                Bank of Baroda
+                            </option>
+
+                            <option>
+                                Punjab National Bank
+                            </option>
+
+                            <option>
+                                Canara Bank
+                            </option>
+
+                            <option>
+                                Other Bank
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- WALLET -->
+
+                    <div
+                        class="payment-panel"
+                        id="wallet"
+                    >
+
+                        <h3>
+                            Wallets
+                        </h3>
+
+                        <p class="panel-description">
+                            Select a wallet to continue.
+                        </p>
+
+
+                        <div class="wallet-list">
+
+                            <label class="wallet-item">
+
+                                <input
+                                    type="radio"
+                                    name="wallet"
+                                    value="Paytm"
+                                >
+
+                                <span>
+                                    👛 Paytm
+                                </span>
+
+                            </label>
+
+
+                            <label class="wallet-item">
+
+                                <input
+                                    type="radio"
+                                    name="wallet"
+                                    value="Mobikwik"
+                                >
+
+                                <span>
+                                    👛 Mobikwik
+                                </span>
+
+                            </label>
+
+
+                            <label class="wallet-item">
+
+                                <input
+                                    type="radio"
+                                    name="wallet"
+                                    value="Amazon Pay"
+                                >
+
+                                <span>
+                                    👛 Amazon Pay
+                                </span>
+
+                            </label>
+
+
+                            <label class="wallet-item">
+
+                                <input
+                                    type="radio"
+                                    name="wallet"
+                                    value="Freecharge"
+                                >
+
+                                <span>
+                                    👛 Freecharge
+                                </span>
+
+                            </label>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- COD -->
+
+                    <div
+                        class="payment-panel"
+                        id="cod"
+                    >
+
+                        <div class="cod-box">
+
+                            <div class="cod-icon">
+                                💵
+                            </div>
+
+                            <h3>
+                                Cash on Delivery
+                            </h3>
+
+                            <p>
+                                Pay in cash when your order is delivered.
+                            </p>
+
+                            <small>
+                                Please keep the exact amount ready.
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================
+             ORDER SUMMARY
+        ========================= -->
+
+        <aside class="order-summary">
+
+            <h2>
+                Order Summary
+            </h2>
+
+
+            <div class="summary-row">
+
+                <span>
+                    Item Total
+                </span>
+
+                <strong id="itemTotal">
+                    ₹0
+                </strong>
+
+            </div>
+
+
+            <div class="summary-row">
+
+                <span>
+                    Delivery Fee
+                </span>
+
+                <strong id="deliveryFee">
+                    ₹40
+                </strong>
+
+            </div>
+
+
+            <div class="summary-row">
+
+                <span>
+                    Platform Fee
+                </span>
+
+                <strong>
+                    ₹5
+                </strong>
+
+            </div>
+
+
+            <div class="summary-row">
+
+                <span>
+                    Taxes & Charges
+                </span>
+
+                <strong id="taxAmount">
+                    ₹0
+                </strong>
+
+            </div>
+
+
+            <div class="summary-line"></div>
+
+
+            <div class="summary-total">
+
+                <span>
+                    Total Amount
+                </span>
+
+                <strong id="totalAmount">
+                    ₹0
+                </strong>
+
+            </div>
+
+
+            <button
+                class="place-order-button"
+                id="placeOrderButton"
+            >
+
+                🔒 Pay ₹<span id="payAmount">0</span>
+
+            </button>
+
+
+            <div class="secure-payment">
+
+                🔒
+                Safe & Secure Payments
+
+            </div>
+
+            <div class="payment-logos">
+
+                <span>VISA</span>
+                <span>UPI</span>
+                <span>RuPay</span>
+                <span>Mastercard</span>
+
+            </div>
+
+        </aside>
+
+    </section>
+
+</main>
+
+
+
+<!-- =========================
+     SUCCESS POPUP
+========================= -->
+
+<div
+    class="success-overlay"
+    id="successOverlay"
+>
+
+    <div class="success-box">
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+        <h2>
+            Order Placed Successfully! 🎉
+        </h2>
+
+        <p>
+            Your delicious food is on its way.
+        </p>
+
+        <div class="order-number">
+            Order #TMT<span id="orderNumber"></span>
+        </div>
+
+        <button
+            id="continueHome"
+            class="continue-home"
+        >
+            Continue to Home
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<script src="payment.js"></script>
+
+</body>
+
+</html>

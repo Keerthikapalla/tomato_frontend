@@ -1,0 +1,617 @@
+/* =====================================================
+   TOMATO ORDER HISTORY
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: #fffaf7;
+    color: #292929;
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+    height: 75px;
+    padding: 0 7%;
+
+    background: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 100;
+
+    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.06);
+}
+
+
+.logo {
+    text-decoration: none;
+
+    color: #e23744;
+
+    font-size: 25px;
+    font-weight: 800;
+}
+
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+
+.home-link,
+.cart-link {
+    text-decoration: none;
+
+    color: #555;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    transition: 0.2s;
+}
+
+
+.home-link:hover,
+.cart-link:hover {
+    color: #e23744;
+}
+
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+.profile-icon {
+    width: 38px;
+    height: 38px;
+
+    border-radius: 50%;
+
+    background: #fff0eb;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 19px;
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.orders-container {
+    width: 86%;
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding: 55px 0 80px;
+}
+
+
+/* =====================================================
+   HEADING
+===================================================== */
+
+.page-heading {
+    margin-bottom: 35px;
+}
+
+
+.small-title {
+    color: #e23744;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+
+.page-heading h1 {
+    font-size: 38px;
+
+    margin-top: 5px;
+}
+
+
+.page-heading p {
+    margin-top: 8px;
+
+    color: #888;
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   ORDER CARD
+===================================================== */
+
+.order-card {
+    background: white;
+
+    border-radius: 20px;
+
+    margin-bottom: 25px;
+
+    padding: 22px;
+
+    border: 1px solid #f0e6e1;
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+
+    transition: 0.25s;
+}
+
+
+.order-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =====================================================
+   ORDER HEADER
+===================================================== */
+
+.order-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding-bottom: 18px;
+
+    border-bottom: 1px solid #eee;
+}
+
+
+.restaurant-name {
+    font-size: 17px;
+
+    font-weight: 700;
+}
+
+
+.order-id {
+    margin-top: 5px;
+
+    color: #999;
+
+    font-size: 10px;
+}
+
+
+.order-status {
+    padding: 7px 12px;
+
+    border-radius: 20px;
+
+    background: #e9f7ed;
+
+    color: #23833b;
+
+    font-size: 10px;
+
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   ORDER INFO
+===================================================== */
+
+.order-info {
+    display: flex;
+
+    gap: 30px;
+
+    padding: 18px 0;
+
+    color: #777;
+
+    font-size: 11px;
+}
+
+
+.order-info span {
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+}
+
+
+/* =====================================================
+   ITEMS
+===================================================== */
+
+.order-items {
+    background: #fffaf8;
+
+    border-radius: 14px;
+
+    padding: 15px;
+
+    margin-bottom: 18px;
+}
+
+
+.order-item {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 9px 0;
+
+    font-size: 12px;
+}
+
+
+.order-item:not(:last-child) {
+    border-bottom: 1px solid #eee5e1;
+}
+
+
+.item-left {
+    display: flex;
+
+    gap: 10px;
+
+    align-items: center;
+}
+
+
+.item-icon {
+    width: 34px;
+    height: 34px;
+
+    border-radius: 8px;
+
+    background: #ffe9e2;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 17px;
+}
+
+
+.item-name {
+    font-weight: 600;
+}
+
+
+.item-quantity {
+    color: #999;
+
+    font-size: 10px;
+
+    margin-top: 2px;
+}
+
+
+.item-price {
+    font-weight: 600;
+
+    color: #444;
+}
+
+
+/* =====================================================
+   ORDER BOTTOM
+===================================================== */
+
+.order-bottom {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+
+.delivery-address {
+    color: #777;
+
+    font-size: 11px;
+
+    max-width: 60%;
+}
+
+
+.total-section {
+    text-align: right;
+}
+
+
+.total-label {
+    color: #999;
+
+    font-size: 10px;
+}
+
+
+.total-amount {
+    color: #e23744;
+
+    font-size: 19px;
+
+    font-weight: 800;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.order-actions {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 18px;
+
+    padding-top: 18px;
+
+    border-top: 1px solid #eee;
+}
+
+
+.reorder-button,
+.details-button {
+    padding: 10px 17px;
+
+    border-radius: 10px;
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.reorder-button {
+    border: none;
+
+    background: #e23744;
+
+    color: white;
+}
+
+
+.reorder-button:hover {
+    background: #c92532;
+}
+
+
+.details-button {
+    border: 1px solid #eaded9;
+
+    background: white;
+
+    color: #555;
+}
+
+
+.details-button:hover {
+    border-color: #e23744;
+
+    color: #e23744;
+}
+
+
+/* =====================================================
+   EMPTY ORDERS
+===================================================== */
+
+.empty-orders {
+    background: white;
+
+    border-radius: 25px;
+
+    padding: 70px 20px;
+
+    text-align: center;
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+}
+
+
+.empty-icon {
+    font-size: 65px;
+}
+
+
+.empty-orders h2 {
+    margin-top: 15px;
+
+    font-size: 22px;
+}
+
+
+.empty-orders p {
+    margin-top: 7px;
+
+    color: #999;
+
+    font-size: 12px;
+}
+
+
+.start-order-button {
+    display: inline-block;
+
+    margin-top: 22px;
+
+    padding: 12px 20px;
+
+    background: #e23744;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 10px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+    background: #292929;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 40px 20px;
+}
+
+
+.footer-logo {
+    color: #ff777d;
+
+    font-size: 23px;
+
+    font-weight: 800;
+}
+
+
+.footer p {
+    margin: 8px 0 15px;
+
+    color: #aaa;
+
+    font-size: 11px;
+}
+
+
+.footer span {
+    color: #777;
+
+    font-size: 10px;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .navbar {
+        padding: 0 5%;
+    }
+
+
+    .logo {
+        font-size: 20px;
+    }
+
+
+    .nav-right {
+        gap: 12px;
+    }
+
+
+    .home-link {
+        display: none;
+    }
+
+
+    .orders-container {
+        width: 92%;
+
+        padding-top: 40px;
+    }
+
+
+    .page-heading h1 {
+        font-size: 30px;
+    }
+
+
+    .order-header {
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+
+    .order-info {
+        flex-direction: column;
+
+        gap: 8px;
+    }
+
+
+    .order-bottom {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+
+    .delivery-address {
+        max-width: 100%;
+    }
+
+
+    .total-section {
+        text-align: left;
+    }
+
+}

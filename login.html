@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Login | TOMATO</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        min-height: 100vh;
+        background: #fff8f2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      /* ==============================
+         BACKGROUND DECORATIONS
+         ============================== */
+
+      .circle {
+        position: fixed;
+        border-radius: 50%;
+        pointer-events: none;
+      }
+
+      .circle-one {
+        width: 320px;
+        height: 320px;
+        background: #ffe5dc;
+        top: -150px;
+        left: -100px;
+      }
+
+      .circle-two {
+        width: 260px;
+        height: 260px;
+        background: #e8f5e9;
+        bottom: -130px;
+        right: -80px;
+      }
+
+      .floating-food {
+        position: fixed;
+        font-size: 38px;
+        animation: floatFood 4s ease-in-out infinite;
+        pointer-events: none;
+      }
+
+      .food-one {
+        top: 12%;
+        left: 10%;
+      }
+
+      .food-two {
+        top: 18%;
+        right: 10%;
+      }
+
+      .food-three {
+        bottom: 18%;
+        left: 8%;
+      }
+
+      .food-four {
+        bottom: 12%;
+        right: 10%;
+      }
+
+      @keyframes floatFood {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+
+        50% {
+          transform: translateY(-12px) rotate(5deg);
+        }
+      }
+
+      /* ==============================
+         LOGIN CARD
+         ============================== */
+
+      .login-card {
+        width: 420px;
+        max-width: 90%;
+        background: white;
+        padding: 42px;
+        border-radius: 28px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+        position: relative;
+        z-index: 5;
+      }
+
+      /* ==============================
+         LOGO
+         ============================== */
+
+      .brand {
+        text-align: center;
+        margin-bottom: 25px;
+      }
+
+      .tomato-icon {
+        font-size: 32px;
+      }
+
+      .brand-name {
+        font-size: 28px;
+        font-weight: 800;
+        color: #e23744;
+        letter-spacing: 1px;
+      }
+
+      /* ==============================
+         HEADING
+         ============================== */
+
+      h1 {
+        text-align: center;
+        font-size: 28px;
+        color: #222;
+        margin-bottom: 8px;
+      }
+
+      .subtitle {
+        text-align: center;
+        color: #777;
+        font-size: 14px;
+        margin-bottom: 30px;
+      }
+
+      /* ==============================
+         INPUTS
+         ============================== */
+
+      .input-group {
+        margin-bottom: 20px;
+      }
+
+      .input-group label {
+        display: block;
+        font-size: 14px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 8px;
+      }
+
+      .input-group input {
+        width: 100%;
+        padding: 14px 16px;
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        outline: none;
+        font-size: 14px;
+        transition: 0.3s;
+      }
+
+      .input-group input:focus {
+        border-color: #e23744;
+        box-shadow: 0 0 0 3px rgba(226, 55, 68, 0.08);
+      }
+
+      /* ==============================
+         PASSWORD
+         ============================== */
+
+      .password-wrapper {
+        position: relative;
+      }
+
+      .password-wrapper input {
+        padding-right: 70px;
+      }
+
+      .show-password {
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        border: none;
+        background: transparent;
+        color: #e23744;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      /* ==============================
+         OPTIONS
+         ============================== */
+
+      .login-options {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 5px 0 25px;
+        font-size: 13px;
+      }
+
+      .remember {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        color: #666;
+      }
+
+      .remember input {
+        accent-color: #e23744;
+      }
+
+      .forgot-password {
+        color: #e23744;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      /* ==============================
+         LOGIN BUTTON
+         ============================== */
+
+      .login-btn {
+        width: 100%;
+        border: none;
+        padding: 15px;
+        border-radius: 13px;
+        background: #e23744;
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .login-btn:hover {
+        background: #c92535;
+        transform: translateY(-2px);
+      }
+
+      /* ==============================
+         REGISTER
+         ============================== */
+
+      .register-text {
+        text-align: center;
+        margin-top: 25px;
+        color: #777;
+        font-size: 14px;
+      }
+
+      .register-text a {
+        color: #e23744;
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      /* ==============================
+         BOTTOM FOOD
+         ============================== */
+
+      .bottom-food {
+        text-align: center;
+        margin-top: 25px;
+        font-size: 22px;
+        letter-spacing: 10px;
+      }
+
+      /* ==============================
+         MOBILE
+         ============================== */
+
+      @media (max-width: 600px) {
+        .login-card {
+          padding: 30px 25px;
+        }
+
+        .floating-food {
+          font-size: 28px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- BACKGROUND DECORATIONS -->
+
+    <div class="circle circle-one"></div>
+    <div class="circle circle-two"></div>
+
+    <div class="floating-food food-one">🍕</div>
+    <div class="floating-food food-two">🍔</div>
+    <div class="floating-food food-three">🍰</div>
+    <div class="floating-food food-four">🥤</div>
+
+    <!-- LOGIN CARD -->
+
+    <div class="login-card">
+      <!-- LOGO -->
+
+      <div class="brand">
+        <span class="tomato-icon"> 🍅 </span>
+
+        <span class="brand-name"> TOMATO </span>
+      </div>
+
+      <!-- HEADING -->
+
+      <h1>Welcome back! ❤️</h1>
+
+      <p class="subtitle">Login to discover something delicious.</p>
+
+      <!-- LOGIN FORM -->
+
+      <form id="loginForm">
+        <!-- EMAIL -->
+
+        <div class="input-group">
+          <label for="email"> Email Address </label>
+
+          <input
+            type="email"
+            id="email"
+            placeholder="Enter your email"
+            required
+          />
+        </div>
+
+        <!-- PASSWORD -->
+
+        <div class="input-group">
+          <label for="password"> Password </label>
+
+          <div class="password-wrapper">
+            <input
+              type="password"
+              id="password"
+              placeholder="Enter your password"
+              required
+            />
+
+            <button
+              type="button"
+              class="show-password"
+              onclick="togglePassword()"
+            >
+              Show
+            </button>
+          </div>
+        </div>
+
+        <!-- OPTIONS -->
+
+        <div class="login-options">
+          <label class="remember">
+            <input type="checkbox" id="remember" />
+
+            Remember me
+          </label>
+
+          <a href="#" class="forgot-password" onclick="return false;">
+            Forgot password?
+          </a>
+        </div>
+
+        <!-- LOGIN BUTTON -->
+
+        <button type="submit" class="login-btn">Login 🍅</button>
+      </form>
+
+      <!-- REGISTER -->
+
+      <div class="register-text">
+        Don't have an account?
+
+        <a href="registration.html"> Create Account </a>
+      </div>
+
+      <!-- BOTTOM FOOD -->
+
+      <div class="bottom-food">🍕 🥗 🍔 🍰 🍜</div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+      /* SHOW / HIDE PASSWORD */
+
+      function togglePassword() {
+        const password = document.getElementById("password");
+
+        const button = document.querySelector(".show-password");
+
+        if (password.type === "password") {
+          password.type = "text";
+
+          button.textContent = "Hide";
+        } else {
+          password.type = "password";
+
+          button.textContent = "Show";
+        }
+      }
+
+      /* LOGIN */
+
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const email = document.getElementById("email").value.trim();
+
+          const password = document.getElementById("password").value.trim();
+
+          if (email === "" || password === "") {
+            alert("Please enter your email and password.");
+
+            return;
+          }
+
+          /*
+             FOR NOW:
+             After login, go to home page.
+
+             We will connect this to your
+             backend/database later.
+          */
+
+          alert("Login successful! Welcome to TOMATO ❤️");
+
+          window.location.href = "home.html";
+        });
+    </script>
+  </body>
+</html>
